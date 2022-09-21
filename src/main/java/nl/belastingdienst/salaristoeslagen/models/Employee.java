@@ -1,6 +1,10 @@
 package nl.belastingdienst.salaristoeslagen.models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import nl.belastingdienst.salaristoeslagen.Controller.EmployeeController;
 import nl.belastingdienst.salaristoeslagen.repositorie.CompanyRepository;
 
@@ -9,6 +13,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "Employees")
+@Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Employee {
 
     @Id
@@ -23,7 +28,6 @@ public class Employee {
 @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private LocalDate birthday;
 
-    private int companyId;
     private String city;
 
     private double commuteKm;
@@ -34,102 +38,12 @@ public class Employee {
 
     private double hoursAWeek;
 
+    @ManyToOne()
+    private Company company;
 
-    public Employee() {
-    }
 
-    public Employee(Long id, String firstName, String lastName, LocalDate birthday, String address, String city, double commuteKm, double salary, double hoursAWeek, int companyId) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthday = birthday;
-        this.address = address;
-        this.city = city;
-        this.commuteKm = commuteKm;
-        this.salary = salary;
-        this.hoursAWeek = hoursAWeek;
-        this.companyId = companyId;
-    }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String adres) {
-        this.address = adres;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String woonplaats) {
-        this.city = woonplaats;
-    }
-
-    public double getCommuteKm() {
-        return commuteKm;
-    }
-
-    public void setCommuteKm(double commuteKm) {
-        this.commuteKm = commuteKm;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public double getHoursAWeek() {
-        return hoursAWeek;
-    }
-
-    public void setHoursAWeek(double hoursAWeek) {
-        this.hoursAWeek = hoursAWeek;
-    }
-
-    public int getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
-    }
 
     @Override
     public String toString() {

@@ -1,10 +1,19 @@
 package nl.belastingdienst.salaristoeslagen.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "Companies")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Company {
 
     @Id
@@ -14,30 +23,10 @@ public class Company {
     @Column(nullable = false)
     private String name;
 
+    @OneToMany(mappedBy = "company")
+    private List<Employee> employees;
 
-    public Company(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
-    public Company() {
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Override
     public String toString() {

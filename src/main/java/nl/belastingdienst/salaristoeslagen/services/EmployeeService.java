@@ -54,7 +54,6 @@ public class EmployeeService {
         employeeDto.setCity(employee.getCity());
         employeeDto.setAddress(employee.getAddress());
         employeeDto.setCommuteKm(employee.getCommuteKm());
-        employeeDto.setCompanyId(employee.getCompanyId());
         employeeDto.setHoursAWeek(employee.getHoursAWeek());
         employeeDto.setSalary(employee.getSalary());
         return employeeDto;
@@ -69,7 +68,6 @@ public class EmployeeService {
         employee.setCity(employeeDto.getCity());
         employee.setAddress(employeeDto.getAddress());
         employee.setCommuteKm(employeeDto.getCommuteKm());
-        employee.setCompanyId(employeeDto.getCompanyId());
         employee.setHoursAWeek(employeeDto.getHoursAWeek());
         employee.setSalary(employeeDto.getSalary());
         return employee;

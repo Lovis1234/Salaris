@@ -20,9 +20,10 @@ public class DataLoader {
     }
 
     private void load(){
-        Employee employee = new Employee(1001L,"Stan","Kuipers", LocalDate.now(),"Zuiderpark 11","Wolvega",89,69.11,1,1);
-        Company company = new Company(1001L,"Tax and Customs Administration");
-        companyRepository.save(company);
+
+        Company company = new Company(1001L,"Tax and Customs Administration",null);
+        Company returnCompany = companyRepository.save(company);
+        Employee employee = new Employee(1001L,"Test","Kuipers", LocalDate.now(),"Wolvega",21,89,"Zuiderpark 11",1,returnCompany);
         employeeRepository.save(employee);
     }
 }
