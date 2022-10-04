@@ -45,14 +45,14 @@ public class CompanyService {
     }
     
 
-    private CompanyDto fromCompany(Company company){
+    public static CompanyDto fromCompany(Company company){
         CompanyDto companyDto = new CompanyDto();
         companyDto.setId(company.getId());
         companyDto.setName(company.getName());
         return companyDto;
     }
 
-    private Company toCompany(CompanyDto companyDto){
+    public static Company toCompany(CompanyDto companyDto){
         Company company = new Company();
         company.setId(company.getId());
         company.setName(companyDto.getName());

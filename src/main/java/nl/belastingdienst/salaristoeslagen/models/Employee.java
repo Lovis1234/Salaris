@@ -10,6 +10,7 @@ import nl.belastingdienst.salaristoeslagen.repositorie.CompanyRepository;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Employees")
@@ -38,7 +39,7 @@ public class Employee {
 
     private double hoursAWeek;
 
-    @ManyToOne()
+    @ManyToOne
     private Company company;
 
 
